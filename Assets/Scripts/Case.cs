@@ -19,14 +19,14 @@ public class Case : MonoBehaviour
         GameMain = FindObjectOfType<GameMain>();
         GameClients = FindObjectOfType<GameClients>();
         ItemsBase = FindObjectOfType<ItemsBase>();
-
+        //Смотрим страну
         int Country = GameClients.CurrentClient.GetComponent<Client>().ClientType;
         List<Place> CasePlaces = new List<Place>();
         
         CasePlaces.AddRange(FindObjectsOfType<Place>());
         List<GameObject> CountryItems = new List<GameObject>();
         CountryItems.AddRange(ItemsBase.Elements[GameClients.CurrentCountry].Items);
-        foreach (Place a in CasePlaces)
+        foreach (Place a in CasePlaces) //в каждой ячейке создаём каждый предмет
         {
             for (int i = 0; i < ItemsBase.Elements[GameClients.CurrentCountry].Items.Count; i++)
             {
@@ -36,8 +36,11 @@ public class Case : MonoBehaviour
                 AllItems.Add(NewItem);
             }
         }
+        //перемешиваем предметы
         AllItems = MyLib.My.Shuffle(AllItems);
+        //Сортируем по возрастанию необходимых ячеек
         AllItems = AllItems.ToArray().OrderBy(x => x.GetComponent<Item>().PlacesCountNeeded).ToList();
+        //переворачиваем, ибо нам нужно по убыванию ячеек
         AllItems.Reverse();
         StartCoroutine(Prestart());
     }
@@ -50,7 +53,8 @@ public class Case : MonoBehaviour
         {
             if (AllItems[0])
             {
-                if (AllItems[0].GetComponent<Item>().Places.Count != (2 * AllItems[0].GetComponent<Item>().PlacesCountNeeded))
+                //если ячеек у предмета меньше, чем надо, то долой его
+                if (AllItems[0].GetComponent<Item>().Places.Count != (CaseType * AllItems[0].GetComponent<Item>().PlacesCountNeeded))
                 {
                     GameObject temp = AllItems[0];
                     AllItems.RemoveAt(0);
@@ -58,6 +62,7 @@ public class Case : MonoBehaviour
                     Destroy(temp);
                     continue;
                 }
+                //так как у нас уже список перемешан, то просто удаляем всех коллайдеров с предметом
                 foreach (Collider a in AllItems[0].GetComponent<Item>().Colliders)
                 {
                     if (a)
@@ -72,6 +77,7 @@ public class Case : MonoBehaviour
             }
             else AllItems.RemoveAt(0);
         }
+        //выбираем случайные два, которые надо будет руками засовывать в кейс обратно
         int MoveCount = 2;
         foreach (GameObject a in GameMain.Items)
         {
@@ -90,6 +96,7 @@ public class Case : MonoBehaviour
                 }
                 a.GetComponent<Item>().Places.Clear();
             }
+            //всех остальных делаем неприкасаемыми
             else
             {
                 a.GetComponent<Item>().Unmovable = true;

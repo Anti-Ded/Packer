@@ -54,6 +54,7 @@ MonoBehaviour:
     - {fileID: 7616257699538929323, guid: 175febf9ef63a3249b2d7077dcaa2848, type: 3}
     - {fileID: 7616257699538929323, guid: bcb1bdd0767b4114ab1cadbf210b29cb, type: 3}
     - {fileID: 7616257699538929323, guid: 43c00d7ff9e70f743b750748b2ee7ef5, type: 3}
+    - {fileID: 5855982693246965445, guid: 860daed630194ce468fb398e91ae0870, type: 3}
     Clients:
     - {fileID: 3843250161537488849, guid: 1f403dea2ed436e47a40004f12c4a539, type: 3}
   - CountryName: German
@@ -65,6 +66,7 @@ MonoBehaviour:
     Cases:
     - {fileID: 7616257699538929323, guid: 175febf9ef63a3249b2d7077dcaa2848, type: 3}
     - {fileID: 7616257699538929323, guid: 1d0b1be3295b567448fd25a2afb56029, type: 3}
+    - {fileID: 5855982693246965445, guid: 860daed630194ce468fb398e91ae0870, type: 3}
     Clients:
     - {fileID: 3843250161537488849, guid: facb4e4e401b58b4ca91bd249ababae8, type: 3}
   - CountryName: Russia
@@ -76,6 +78,7 @@ MonoBehaviour:
     Cases:
     - {fileID: 7616257699538929323, guid: 43c00d7ff9e70f743b750748b2ee7ef5, type: 3}
     - {fileID: 7616257699538929323, guid: bcb1bdd0767b4114ab1cadbf210b29cb, type: 3}
+    - {fileID: 5855982693246965445, guid: 95dadea1c78d47f438c5ac257a57f10c, type: 3}
     Clients:
     - {fileID: 3843250161537488849, guid: 2395f738240586541898a3699266dcc6, type: 3}
   - CountryName: UK
@@ -87,6 +90,7 @@ MonoBehaviour:
     Cases:
     - {fileID: 7616257699538929323, guid: 20e5fba0f7dde0743b99ebd6d841798a, type: 3}
     - {fileID: 7616257699538929323, guid: 5c8ba5ea787f8af4caf6c41a572c84c2, type: 3}
+    - {fileID: 5855982693246965445, guid: 95dadea1c78d47f438c5ac257a57f10c, type: 3}
     Clients:
     - {fileID: 3843250161537488849, guid: 17ec10bf1f3ca094c953fbc731a0d13e, type: 3}
   - CountryName: USA
@@ -98,5 +102,6 @@ MonoBehaviour:
     Cases:
     - {fileID: 7616257699538929323, guid: 7dbafe4d45e29b045961ba09fb6a1162, type: 3}
     - {fileID: 7616257699538929323, guid: 067be89abf1ecbc4399833ca65bf3877, type: 3}
+    - {fileID: 5855982693246965445, guid: 860daed630194ce468fb398e91ae0870, type: 3}
     Clients:
     - {fileID: 3843250161537488849, guid: 1e5b1a38df3553c48821d2fbdf199168, type: 3}

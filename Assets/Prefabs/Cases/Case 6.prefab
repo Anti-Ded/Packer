@@ -360,7 +360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Open: 0
-  CaseType: 0
+  CaseType: 2
+  spawned: 0
 --- !u!111 &5782443607781491471
 Animation:
   m_ObjectHideFlags: 0

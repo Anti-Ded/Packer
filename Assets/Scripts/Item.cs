@@ -29,9 +29,11 @@ public class Item : MonoBehaviour
 
     void Update()
     {
+        //Если ячеек нужное количество, то присваиваем предмету место
         if (Places.Count == PlacesCountNeeded)
             Place = Places[My.Closest(gameObject, Places)];
 
+        //Двигаем предмет по курсору
         if (GameMain.ItemInHand == gameObject.transform)
         {
             if (GameMain.Mouse)
@@ -40,7 +42,7 @@ public class Item : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 10,LayerMask.GetMask("Table")))
                 transform.position = new Vector3(hit.point.x, 0.67f, hit.point.z);
         }
-        else
+        else //Если предмет не схвачен, то его либо в ячейку двигать, либо на место
         {
             if (Place)
             {

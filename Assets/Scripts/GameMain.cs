@@ -78,7 +78,7 @@ public class GameMain : MonoBehaviour
 
         foreach (GameObject a in Items)
         {
-
+            //проверяем у каждого ли предмета хватает ячеек
             if (!(a.GetComponent<Item>().Places.Count >= a.GetComponent<Item>().PlacesCountNeeded) && !a.GetComponent<Item>().Unmovable)
             {
                 Good = false;
@@ -86,7 +86,7 @@ public class GameMain : MonoBehaviour
                     Instantiate(ErrorPrefab, a.transform.position, a.transform.rotation, a.GetComponent<Item>().Place.transform);
                 else Instantiate(ErrorPrefab, a.transform.position, a.transform.rotation);
             }
-
+            //проверям на пересечение с другими предметами
             foreach (Collider b in a.GetComponent<Item>().Colliders)
                 if (!b)
                     a.GetComponent<Item>().Colliders.Remove(b);

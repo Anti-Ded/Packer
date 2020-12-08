@@ -10,11 +10,13 @@ public class AllGUI : MonoBehaviour
     public TMPro.TextMeshProUGUI MoneyValue;
     public TMPro.TextMeshProUGUI ClientMoneyValue;
     public Image ClientCountry;
+    GameMain GameMain;
     ItemsBase ItemsBase;
 
     private void Start()
     {
         ItemsBase = FindObjectOfType<ItemsBase>();
+        GameMain = FindObjectOfType<GameMain>();
         CurrentMoney = PlayerPrefs.GetInt("CurrentMoney", 0);
         Money();
     }
@@ -22,6 +24,7 @@ public class AllGUI : MonoBehaviour
     {
         Client Client = CurrentClient.GetComponent<Client>();
         ClientFrame.SetActive(true);
+        Client.ClientMoney = GameMain.Case.GetComponent<Case>().CaseType * Random.Range(20, 30);
         ClientMoneyValue.text = Client.ClientMoney.ToString();
         ClientCountry.sprite = ItemsBase.Elements[Client.ClientType].CountryFlag;
     }
