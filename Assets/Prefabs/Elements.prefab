@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7966073794495995700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5041608214105421504}
+  - component: {fileID: 3883827396989978814}
+  m_Layer: 0
+  m_Name: Elements
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5041608214105421504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966073794495995700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3883827396989978814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966073794495995700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28304970727032f4297734f950a8369f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Elements:
+  - CountryName: China
+    CountryFlag: {fileID: 21300000, guid: 4d4ce7aedf76e58458fdb84019153cfe, type: 3}
+    Items:
+    - {fileID: 8639865524983672587, guid: 4a76c3e19858f8a42a9eb685fc45ed8c, type: 3}
+    - {fileID: 1329216336202145399, guid: eeb3ee45e906e6e4187eef425272153a, type: 3}
+    - {fileID: 3829992320368051093, guid: eff12a90f96c18d49bc85e0d7026189b, type: 3}
+    Cases:
+    - {fileID: 7616257699538929323, guid: 175febf9ef63a3249b2d7077dcaa2848, type: 3}
+    - {fileID: 7616257699538929323, guid: bcb1bdd0767b4114ab1cadbf210b29cb, type: 3}
+    - {fileID: 7616257699538929323, guid: 43c00d7ff9e70f743b750748b2ee7ef5, type: 3}
+    Clients:
+    - {fileID: 3843250161537488849, guid: 1f403dea2ed436e47a40004f12c4a539, type: 3}
+  - CountryName: German
+    CountryFlag: {fileID: 21300000, guid: 64431cde2a5584944862876960be05f3, type: 3}
+    Items:
+    - {fileID: 6362116235415933535, guid: c966eb7f279129b4fb8982096c7d69f4, type: 3}
+    - {fileID: 1457918611586226734, guid: 3ac8baf8ffc09a04d9a69b884aa990aa, type: 3}
+    - {fileID: 6798716729089283501, guid: 80f2f18b224a5df4fa88dc6db4dbded0, type: 3}
+    Cases:
+    - {fileID: 7616257699538929323, guid: 175febf9ef63a3249b2d7077dcaa2848, type: 3}
+    - {fileID: 7616257699538929323, guid: 1d0b1be3295b567448fd25a2afb56029, type: 3}
+    Clients:
+    - {fileID: 3843250161537488849, guid: facb4e4e401b58b4ca91bd249ababae8, type: 3}
+  - CountryName: Russia
+    CountryFlag: {fileID: 21300000, guid: b6d761185dcc29b469ee7a702b44f8d8, type: 3}
+    Items:
+    - {fileID: 6108273995011178134, guid: ccc2583e5ece89d408a21d741ffc02ba, type: 3}
+    - {fileID: 3247408788637411135, guid: 9713f37254996d24a8f38bc74ded1d2f, type: 3}
+    - {fileID: 2551634971710953679, guid: 344e0d3e983f5b24f91220106d4bf133, type: 3}
+    Cases:
+    - {fileID: 7616257699538929323, guid: 43c00d7ff9e70f743b750748b2ee7ef5, type: 3}
+    - {fileID: 7616257699538929323, guid: bcb1bdd0767b4114ab1cadbf210b29cb, type: 3}
+    Clients:
+    - {fileID: 3843250161537488849, guid: 2395f738240586541898a3699266dcc6, type: 3}
+  - CountryName: UK
+    CountryFlag: {fileID: 21300000, guid: b33d3f44138eba54993779c42fa16ee4, type: 3}
+    Items:
+    - {fileID: 781294823486960430, guid: b63f9d5fa74024c45830ddfdb07bff2e, type: 3}
+    - {fileID: 6798716729089283501, guid: 80f2f18b224a5df4fa88dc6db4dbded0, type: 3}
+    - {fileID: 1329216336202145399, guid: eeb3ee45e906e6e4187eef425272153a, type: 3}
+    Cases:
+    - {fileID: 7616257699538929323, guid: 20e5fba0f7dde0743b99ebd6d841798a, type: 3}
+    - {fileID: 7616257699538929323, guid: 5c8ba5ea787f8af4caf6c41a572c84c2, type: 3}
+    Clients:
+    - {fileID: 3843250161537488849, guid: 17ec10bf1f3ca094c953fbc731a0d13e, type: 3}
+  - CountryName: USA
+    CountryFlag: {fileID: 21300000, guid: cdea64f5f5b02074b8582f1d215b8aea, type: 3}
+    Items:
+    - {fileID: 8956825562437358526, guid: 39d3321895911c54497b6c9c3b8d78df, type: 3}
+    - {fileID: 4434132437060604095, guid: 36003b00336583f40b8132945f701d72, type: 3}
+    - {fileID: 3829992320368051093, guid: eff12a90f96c18d49bc85e0d7026189b, type: 3}
+    Cases:
+    - {fileID: 7616257699538929323, guid: 7dbafe4d45e29b045961ba09fb6a1162, type: 3}
+    - {fileID: 7616257699538929323, guid: 067be89abf1ecbc4399833ca65bf3877, type: 3}
+    Clients:
+    - {fileID: 3843250161537488849, guid: 1e5b1a38df3553c48821d2fbdf199168, type: 3}
