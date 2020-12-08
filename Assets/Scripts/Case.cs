@@ -23,9 +23,11 @@ public class Case : MonoBehaviour
         int Country = GameClients.CurrentClient.GetComponent<Client>().ClientType;
         List<Place> CasePlaces = new List<Place>();
         
+        //Создание нового кейса и его наполнение
         CasePlaces.AddRange(FindObjectsOfType<Place>());
         List<GameObject> CountryItems = new List<GameObject>();
         CountryItems.AddRange(ItemsBase.Elements[GameClients.CurrentCountry].Items);
+        //в каждрй ячейке создаётся каждый предмет страны, а потом удаляем лишние
         foreach (Place a in CasePlaces)
         {
             for (int i = 0; i < ItemsBase.Elements[GameClients.CurrentCountry].Items.Count; i++)
@@ -36,9 +38,13 @@ public class Case : MonoBehaviour
                 AllItems.Add(NewItem);
             }
         }
+        //все предметы перемешиваются
         AllItems = MyLib.My.Shuffle(AllItems);
+        //все предметы сортируются по возрастанию количества требуемых ячеек
         AllItems = AllItems.ToArray().OrderBy(x => x.GetComponent<Item>().PlacesCountNeeded).ToList();
+        //разворачиваем, чтобы по убыванию количества требуемых ячеек
         AllItems.Reverse();
+        //корутина, чтобы дать время предметам схватиться за ячейки
         StartCoroutine(Prestart());
     }
     
@@ -50,6 +56,7 @@ public class Case : MonoBehaviour
         {
             if (AllItems[0])
             {
+                //удаляем тех, у кого количество ячеек меньше, чем надо
                 if (AllItems[0].GetComponent<Item>().Places.Count != (2 * AllItems[0].GetComponent<Item>().PlacesCountNeeded))
                 {
                     GameObject temp = AllItems[0];
@@ -60,6 +67,8 @@ public class Case : MonoBehaviour
                 }
                 foreach (Collider a in AllItems[0].GetComponent<Item>().Colliders)
                 {
+                    //так как у нас первыми идут самые большие, то они удаляют всех, кто их касается
+                    // так же все мелкие и одинаковые перемешаны, потому в каждой клетке остаётся только 1
                     if (a)
                     {
                         Collider temp = a;
@@ -73,6 +82,7 @@ public class Case : MonoBehaviour
             else AllItems.RemoveAt(0);
         }
         int MoveCount = 2;
+        //теперь берём два предмета и ставим их отдельно
         foreach (GameObject a in GameMain.Items)
         {
             a.GetComponent<Item>().Colliders.Clear();
@@ -90,7 +100,7 @@ public class Case : MonoBehaviour
                 }
                 a.GetComponent<Item>().Places.Clear();
             }
-            else
+            else // остальные предметы делаем не движимыми
             {
                 a.GetComponent<Item>().Unmovable = true;
                 int ClosestPlaceIndex = MyLib.My.Closest(a, a.GetComponent<Item>().Places);

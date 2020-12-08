@@ -29,9 +29,10 @@ public class Item : MonoBehaviour
 
     void Update()
     {
+        //если количество мест нужное, то ставим ему точку
         if (Places.Count == PlacesCountNeeded)
             Place = Places[My.Closest(gameObject, Places)];
-
+        //Перемещение предмета под курсоров
         if (GameMain.ItemInHand == gameObject.transform)
         {
             if (GameMain.Mouse)
@@ -42,7 +43,7 @@ public class Item : MonoBehaviour
         }
         else
         {
-            if (Place)
+            if (Place) //ставим предмет в его место в кейсе
             {
                 transform.SetParent(Place.transform, true);
                 transform.position = Vector3.Lerp(transform.position, Place.transform.position, 5 * Time.deltaTime);
@@ -51,7 +52,7 @@ public class Item : MonoBehaviour
                     moving = true;
                 else moving = false;
             }
-            else
+            else //выкидывыаем предмет в его
             {
                 transform.SetParent(null);
                 transform.position = Vector3.Lerp(transform.position, Pos, 3 * Time.deltaTime);

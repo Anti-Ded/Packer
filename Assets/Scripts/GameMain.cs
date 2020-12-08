@@ -78,7 +78,7 @@ public class GameMain : MonoBehaviour
 
         foreach (GameObject a in Items)
         {
-
+            //достаточно ли у каждого предмета ячеек
             if (!(a.GetComponent<Item>().Places.Count >= a.GetComponent<Item>().PlacesCountNeeded) && !a.GetComponent<Item>().Unmovable)
             {
                 Good = false;
@@ -86,11 +86,11 @@ public class GameMain : MonoBehaviour
                     Instantiate(ErrorPrefab, a.transform.position, a.transform.rotation, a.GetComponent<Item>().Place.transform);
                 else Instantiate(ErrorPrefab, a.transform.position, a.transform.rotation);
             }
-
+            //удаляем пустые коллайдеры (подстраховка)
             foreach (Collider b in a.GetComponent<Item>().Colliders)
                 if (!b)
                     a.GetComponent<Item>().Colliders.Remove(b);
-
+            //проверяем не пересекается ли с кем предмет во время закрытия
             if (a.GetComponent<Item>().Colliders.Count != 0)
             {
                 Good = false;

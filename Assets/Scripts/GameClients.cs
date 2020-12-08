@@ -26,8 +26,10 @@ public class GameClients : MonoBehaviour
         Clients.Add(NewCLient);
         return NewCLient;
     }
+
     private GameObject SpawnNewCase(int CountryNumber)
     {
+        //удаляем старые предметы и чистим списки
         foreach(GameObject a in GameMain.Items)
             Destroy(a);
         GameMain.Items.Clear();
@@ -35,6 +37,7 @@ public class GameClients : MonoBehaviour
             Destroy(a);
         GameMain.Places.Clear();
 
+        //создаём новый кейс
         int CaseNumber = Random.Range(0, ItemsBase.Elements[CountryNumber].Cases.Count);
         GameObject NewCase = Instantiate(ItemsBase.Elements[CountryNumber].Cases[CaseNumber], CasePoint.position, CasePoint.rotation);
         return NewCase;
@@ -48,6 +51,7 @@ public class GameClients : MonoBehaviour
         ClientPoint = GameObject.Find("ClientPoint").transform;
         CasePoint = GameObject.Find("CasePoint").transform;
 
+        //Спауним трёх новых клиентов и приказываем им пододвинуться
         for (int i = 0; i < 3; i++)
             SpawnNewCLient().GetComponent<Animation>().Play("Come " + (2-i));
         StartCoroutine(Prestart());
@@ -85,13 +89,13 @@ public class GameClients : MonoBehaviour
     }
     public IEnumerator Restart(bool Disagree)
     {
-        if (Disagree)
+        if (Disagree) //рестарт, если отказано клиенту
         {
             CurrentClient.GetComponent<Animation>().Play("Sad");
             GameMain.Case.GetComponent<Animation>().Play("CaseOff");
             Clients.Remove(CurrentClient);
         }
-        else
+        else //рестарт, если кейс собран
         {
             AllGUI.Money(CurrentClient.GetComponent<Client>().ClientMoney);
             CurrentClient.GetComponent<Animation>().Play("Happy");
