@@ -37,7 +37,7 @@ public class Case : MonoBehaviour
             }
         }
         //перемешиваем предметы
-        AllItems = MyLib.My.Shuffle(AllItems);
+        AllItems = My.Shuffle(AllItems);
         //Сортируем по возрастанию необходимых ячеек
         AllItems = AllItems.ToArray().OrderBy(x => x.GetComponent<Item>().PlacesCountNeeded).ToList();
         //переворачиваем, ибо нам нужно по убыванию ячеек
@@ -81,6 +81,7 @@ public class Case : MonoBehaviour
         int MoveCount = 2;
         foreach (GameObject a in GameMain.Items)
         {
+            Item AItemComponent = a.GetComponent<Item>();
             a.GetComponent<Item>().Colliders.Clear();
             if (MoveCount > 0)
             {
@@ -89,20 +90,19 @@ public class Case : MonoBehaviour
                     a.transform.position = new Vector3(-1, 0.6f, -0.3f);
                 else
                     a.transform.position = new Vector3(-1, 0.6f, 0.3f);
-                a.GetComponent<Item>().Pos = a.transform.position;
-                foreach (GameObject b in a.GetComponent<Item>().Places)
+                AItemComponent.Pos = a.transform.position;
+                foreach (GameObject b in AItemComponent.Places)
                 {
                     b.GetComponent<Place>().Item = null;
                 }
-                a.GetComponent<Item>().Places.Clear();
+                AItemComponent.Places.Clear();
             }
             //всех остальных делаем неприкасаемыми
             else
             {
-                a.GetComponent<Item>().Unmovable = true;
-                int ClosestPlaceIndex = MyLib.My.Closest(a, a.GetComponent<Item>().Places);
-                a.GetComponent<Item>().Place = a.GetComponent<Item>().Places[ClosestPlaceIndex];
-                foreach (GameObject b in a.GetComponent<Item>().Places)
+                AItemComponent.Unmovable = true;
+                AItemComponent.Place = AItemComponent.Places.Closest(a);
+                foreach (GameObject b in AItemComponent.Places)
                     b.GetComponent<Place>().Item = a;
             }
         }

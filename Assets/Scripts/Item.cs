@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MyLib;
+//using MyLib;
 
 public class Item : MonoBehaviour
 {
